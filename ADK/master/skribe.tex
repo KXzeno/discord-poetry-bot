@@ -1,0 +1,104 @@
+\documentclass[7px]{article}
+
+\usepackage{preamble}
+\usepackage{adkore}
+
+\begin{document}
+\frontmatter
+{Enterprise}
+{Poetry Discord Bot}
+{X}
+{E1}
+{This is my first freelance commission; I am tasked to create a discord bot with a simple one-off function that optimally queries fixed data of poetry prompts and posts it in a channel as regular text modified with markdown syntax. There is a potential oversight of faulty manual inputs (e.g., wrong formatting of poetry prompts) to which an extra step is made of making a dashboard webapp to alter backend data.}
+
+\strategy
+% Core Decision
+{
+  Create a discord bot that automates sending a quotidian poetry prompt through a one-off command
+}
+% Prospects
+{
+  \begin{enumerate}
+    \small
+    \begin{itemize}[label=$\multimapdotinv$, leftmargin=1.7mm]
+      \item A \textbf{specific} user can invite the discord bot to their private guild
+      \item A user can use the bot to designate a channel to begin a day-interval prompter
+      \item A database to store preset prompts
+        \begin{itemize}
+          \item No more than 1MB is used unless manually modified
+          \item Utilizes an efficient schema
+        \end{itemize}
+      \item Rate limiting considered
+        \begin{itemize}
+          \item Minimize querying requests from database
+        \item Prevent exceeding \href{https://www.themuse.com/advice/185-powerful-verbs-that-will-make-your-resume-awesome}{\textcolor{blue}{\underline{discord's rate limits}}}
+        \end{itemize}
+    \end{itemize}
+    \normalsize
+\end{enumerate}
+}
+% Decision Parameters
+{
+  \small
+  \begin{itemize}[label=$\multimapdotinv$]
+    \item A
+      \vspace{3mm}\hline{~~~}\vskip\vspace{-4mm}
+      \hfill\scriptsize{\texttt{Refer to E1-C1-T1}}\vspace*{1.7mm}
+  \end{itemize}
+  \begin{itemize}[label=$\multimapdotinv$]
+    \item B
+      \vspace{3mm}\hline{~~~}\vskip\vspace{-4mm}
+      \hfill\scriptsize{\texttt{Refer to E1-C1-T2}}\vspace*{1.7mm}
+  \end{itemize}
+  \begin{itemize}[label=$\multimapdotinv$]
+    \item C
+      \vspace{3mm}\hline{~~~}\vskip\vspace{-4mm}
+      \hfill\scriptsize{\texttt{Refer to E1-C2-T1}}\vspace*{1.7mm}
+      \end {itemize}
+      \normalsize
+    }
+    % Zero Technical Debt Concerns
+    {
+      \small
+      \begin{itemize}[label=\blitzb]
+        \item A
+      \end{itemize}
+      \normalsize
+    }
+
+    % \deploy
+    % % Decision Process
+    % {
+    %   \small
+    %   \begin{enumerate}[label=$\multimapinv$]
+    %     \item A
+    %       % \begin{itemize}[label=$\multimapdot$, leftmargin=1.7mm]
+    %       % \end{itemize}
+    %   \end{enumerate}
+    %   \small
+    % }
+    % % Results and Conflicts
+    % {
+    %   \raggedright
+    %   % \begin{tblr}{
+    %   %     colspec = {|X|X|X|}, width = \linewidth,
+    %   %     row{1-Z} = {font=\scriptsize}
+    %   %   }
+    %   %   Dynamic ToC rendering & {Rapid zooms can cause stale rendering which would otherwise be fixed on observer changes} & {
+    %   %     \begin{itemize}
+    %   %       \item May fix with event listeners
+    %   %       \item Does not include handling subheader tags
+    %   %     \end{itemize}
+    %   %   } \\
+    %   % \end{tblr}
+    % }
+
+    %\report
+    %% Experience Report
+    %{
+    %  k k
+    %}
+
+    \end{document}
+
+
