@@ -3,5 +3,5 @@
 .env
 
 # decision records
-/ADK/*/pdfs
-/ADK/*/logs
+*pdfs/
+*logs/
