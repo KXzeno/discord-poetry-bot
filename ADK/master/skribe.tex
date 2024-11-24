@@ -25,13 +25,17 @@
       \item A user can use the bot to designate a channel to begin a day-interval prompter
       \item A database to store preset prompts
         \begin{itemize}
-          \item No more than 1MB is used unless manually modified
-          \item Utilizes an efficient schema
+          \footnotesize{
+            \item No more than 1MB is used unless manually modified
+            \item Utilizes an efficient schema
+            }
         \end{itemize}
       \item Rate limiting considered
         \begin{itemize}
-          \item Minimize querying requests from database
-        \item Prevent exceeding \href{https://www.themuse.com/advice/185-powerful-verbs-that-will-make-your-resume-awesome}{\textcolor{blue}{\underline{discord's rate limits}}}
+          \footnotesize{
+            \item Minimize querying requests from database
+            \item Prevent exceeding \href{https://www.themuse.com/advice/185-powerful-verbs-that-will-make-your-resume-awesome}{\textcolor{blue}{\underline{discord's rate limits}}}
+            }
         \end{itemize}
     \end{itemize}
     \normalsize
@@ -41,64 +45,80 @@
 {
   \small
   \begin{itemize}[label=$\multimapdotinv$]
-    \item A
+    \item Postgres 16 and Prisma ORM for server-side access and data manipulation
       \vspace{3mm}\hline{~~~}\vskip\vspace{-4mm}
-      \hfill\scriptsize{\texttt{Refer to E1-C1-T1}}\vspace*{1.7mm}
+      \hfill\scriptsize{\texttt{Refer to E1-T1}}\vspace*{1.7mm}
   \end{itemize}
   \begin{itemize}[label=$\multimapdotinv$]
-    \item B
-      \vspace{3mm}\hline{~~~}\vskip\vspace{-4mm}
-      \hfill\scriptsize{\texttt{Refer to E1-C1-T2}}\vspace*{1.7mm}
-  \end{itemize}
-  \begin{itemize}[label=$\multimapdotinv$]
-    \item C
-      \vspace{3mm}\hline{~~~}\vskip\vspace{-4mm}
-      \hfill\scriptsize{\texttt{Refer to E1-C2-T1}}\vspace*{1.7mm}
-      \end {itemize}
-      \normalsize
-    }
-    % Zero Technical Debt Concerns
-    {
-      \small
-      \begin{itemize}[label=\blitzb]
-        \item A
+    \item Utilize local caching that persists via stepped intervals
+      \begin{itemize}
+        \footnotesize{
+          \item Handles rate limits
+          \item Minimizes server requests
+          }
       \end{itemize}
-      \normalsize
-    }
+      \vspace{3mm}\hline{~~~}\vskip\vspace{-4mm}
+      \hfill\scriptsize{\texttt{Refer to E1-T2}}\vspace*{1.7mm}
+  \end{itemize}
+  \begin{itemize}[label=$\multimapdotinv$]
+    \item Discord\text{.}js framework to communicate with Discord's API
+  \end{itemize}
+  \normalsize
+}
+% Zero Technical Debt Concerns
+{
+  \small
+  \begin{itemize}[label=\blitzb]
+    \item Bot relies on an existing hosting solution
+      \begin{itemize}
+        \footnotesize{
+          \item On \$0.00595/hr from \href{https://www.digitalocean.com/pricing/droplets#basic-droplets}{\textcolor{blue}{\underline{DO}}}:
+            \begin{itemize}
+              \item 512MiB RAM
+              \item 1 vCPU
+              \item 500 GiB transfer
+              \item 10 GiB
+            \end{itemize}
+          }
+      \end{itemize}
+    \item Optimization meets end at 0.5GiB consmuption of database
+  \end{itemize}
+  \normalsize
+}
 
-    % \deploy
-    % % Decision Process
-    % {
-    %   \small
-    %   \begin{enumerate}[label=$\multimapinv$]
-    %     \item A
-    %       % \begin{itemize}[label=$\multimapdot$, leftmargin=1.7mm]
-    %       % \end{itemize}
-    %   \end{enumerate}
-    %   \small
-    % }
-    % % Results and Conflicts
-    % {
-    %   \raggedright
-    %   % \begin{tblr}{
-    %   %     colspec = {|X|X|X|}, width = \linewidth,
-    %   %     row{1-Z} = {font=\scriptsize}
-    %   %   }
-    %   %   Dynamic ToC rendering & {Rapid zooms can cause stale rendering which would otherwise be fixed on observer changes} & {
-    %   %     \begin{itemize}
-    %   %       \item May fix with event listeners
-    %   %       \item Does not include handling subheader tags
-    %   %     \end{itemize}
-    %   %   } \\
-    %   % \end{tblr}
-    % }
+% \deploy
+% % Decision Process
+% {
+%   \small
+%   \begin{enumerate}[label=$\multimapinv$]
+%     \item A
+%       % \begin{itemize}[label=$\multimapdot$, leftmargin=1.7mm]
+%       % \end{itemize}
+%   \end{enumerate}
+%   \small
+% }
+% % Results and Conflicts
+% {
+%   \raggedright
+%   % \begin{tblr}{
+%   %     colspec = {|X|X|X|}, width = \linewidth,
+%   %     row{1-Z} = {font=\scriptsize}
+%   %   }
+%   %   Dynamic ToC rendering & {Rapid zooms can cause stale rendering which would otherwise be fixed on observer changes} & {
+%   %     \begin{itemize}
+%   %       \item May fix with event listeners
+%   %       \item Does not include handling subheader tags
+%   %     \end{itemize}
+%   %   } \\
+%   % \end{tblr}
+% }
 
-    %\report
-    %% Experience Report
-    %{
-    %  k k
-    %}
+%\report
+%% Experience Report
+%{
+%  k k
+%}
 
-    \end{document}
+\end{document}
 
 
