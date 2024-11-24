@@ -1,0 +1,108 @@
+\documentclass[7px]{article}
+
+\usepackage{preamble}
+\usepackage{adkore}
+
+\begin{document}
+\frontmatter
+{Aux Feature}
+{Poetry Prompts DB}
+{X}
+{E1-T1}
+{For consistency in the automation of sending prompts, the bot requires an initial consumption of data in which it operates and effectively updates per manual request.}
+
+\strategy
+% Core Decision
+{
+  Utilize Prisma ORM and Postgres to host mutable data that expects rare{\textemdash}by a strategized fetch-and-cache{\textemdash}inbound requests from Discord
+}
+% Prospects
+{
+  \begin{enumerate}
+    \small
+    \begin{itemize}[label=$\multimapdotinv$, leftmargin=1.7mm]
+      \item Populate database with provided 365 prompts
+      \item Size is fixed (<1MB)
+      \item Utilizes an efficient Prisma schema
+      \item Separate uniqueness through ID, not date
+        \begin{itemize}
+          \footnotesize{
+            \item Considers leap year to avoid trickling identity conflict
+            }
+        \end{itemize}
+    \end{itemize}
+    \normalsize
+\end{enumerate}
+}
+% Decision Parameters
+{
+  \small
+  \begin{itemize}[label=$\multimapdotinv$]
+    \item Initialize DB values manually via CSV
+      \begin{itemize}
+        \footnotesize{
+          \item Client provided a text file, convert to CSV through vim macro
+          \item Import through DBeaver
+          }
+      \end{itemize}
+    \item Consist schema of:
+      \footnotesize{
+        \begin{itemize}[label=\bullet]
+          \item UID (\textit{autoincrement})
+          \item Date (\textit{parsed from csv})
+          \item Prompt
+          \item Previous (\textit{Opt.})
+          \item Current (\textit{Opt.})
+          \item Next (\textit{Opt.})
+        \end{itemize}
+      }
+  \end{itemize}
+  \normalsize
+}
+% Zero Technical Debt Concerns
+{
+  \small
+  \begin{itemize}[label=\opentimes]
+    \item Requires an API to manipulate DB
+    \item Overhead of relation field implementation (prev, curr, next)
+  \end{itemize}
+  \normalsize
+}
+
+% \deploy
+% % Decision Process
+% {
+%   \small
+%   \begin{enumerate}[label=$\multimapinv$]
+%     \item A
+%       % \begin{itemize}[label=$\multimapdot$, leftmargin=1.7mm]
+%       % \end{itemize}
+%   \end{enumerate}
+%   \small
+% }
+% % Results and Conflicts
+% {
+%   \raggedright
+%   % \begin{tblr}{
+%   %     colspec = {|X|X|X|}, width = \linewidth,
+%   %     row{1-Z} = {font=\scriptsize}
+%   %   }
+%   %   Dynamic ToC rendering & {Rapid zooms can cause stale rendering which would otherwise be fixed on observer changes} & {
+%   %     \begin{itemize}
+%   %       \item May fix with event listeners
+%   %       \item Does not include handling subheader tags
+%   %     \end{itemize}
+%   %   } \\
+%   % \end{tblr}
+% }
+
+%\report
+%% Experience Report
+%{
+%  k k
+%}
+
+\end{document}
+
+
+
