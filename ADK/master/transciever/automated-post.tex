@@ -1,0 +1,117 @@
+\documentclass[7px]{article}
+
+\usepackage{preamble}
+\usepackage{adkore}
+
+\begin{document}
+\frontmatter
+{Primary Feature}
+{Command Logic}
+{X}
+{E1-T2}
+{With all backend systems operational comes the essence of this undertaking: a command that initiates a scheduler [of 24h as preset] for sending poetry prompts acquired through a single query from a database that is read and/or manipulated within local caching that would otherwise update its cache through another query when integrity is violated.}
+
+\strategy
+% Core Decision
+{
+  Create a one-off Discord command that timely posts poetry prompts in a specified channel using a database
+}
+% Prospects
+{
+  \begin{enumerate}
+    \small
+    \begin{itemize}[label=$\multimapdotinv$, leftmargin=1.7mm]
+      \item A one-off command that schedules the sending of poetry prompts
+        \begin{itemize}
+          \footnotesize{
+            \item Schedule is 24h default
+            }
+        \end{itemize}
+      \item Users must be \textbf{authorized} for the command
+      \item Query limit is 1 but effectively expands on caught exceptions
+      \item Implements \textbf{Separation of concerns} design principle
+        \begin{itemize}
+          \footnotesize{
+            \item Displaying and specifying a channel are two separate concerns
+            \item Import display logic to the specifying logic
+            }
+        \end{itemize}
+    \end{itemize}
+    \normalsize
+\end{enumerate}
+}
+% Decision Parameters
+{
+  \small
+  \begin{itemize}[label=$\multimapdotinv$]
+    \item Ternary operation that gives access to the imported command
+      \footnotesize{
+        \begin{itemize}
+          \item Parse interaction for command name, (e.g., is caller /setpromptchannel or /prompt?)
+          \item Vital if user would like to manually call the current day's prompt
+        \end{itemize}
+      }
+    \item Require the user to have \textit{Administrator} privileges to execute the command
+    \item Create a global state timer that dynamically updates within recursive timeouts
+    \item Prevent unnecessary DB operations
+      \begin{itemize}
+        \item Safeguard duplicate prompt channel requests
+        \item Use upsert to modify existing records 
+      \end{itemize}
+  \end{itemize}
+  \normalsize
+}
+% Zero Technical Debt Concerns
+{
+  \small
+  \begin{itemize}[label=\opentimes]
+    \item Administrators are unable to modify required privileges/roles to execute the command
+    \item Administrators are unable to set multiple prompt channels
+    \item Administrators cannot adjust the time of day of which the prompts are sent 
+      \footnotesize{
+        \begin{itemize}
+          \item 07:00 PST is the agreed-upon target; consistency ensured
+        \end{itemize}
+      }
+  \end{itemize}
+  \normalsize
+}
+
+% \deploy
+% % Decision Process
+% {
+%   \small
+%   \begin{enumerate}[label=$\multimapinv$]
+%     \item A
+%       % \begin{itemize}[label=$\multimapdot$, leftmargin=1.7mm]
+%       % \end{itemize}
+%   \end{enumerate}
+%   \small
+% }
+% % Results and Conflicts
+% {
+%   \raggedright
+%   % \begin{tblr}{
+%   %     colspec = {|X|X|X|}, width = \linewidth,
+%   %     row{1-Z} = {font=\scriptsize}
+%   %   }
+%   %   Dynamic ToC rendering & {Rapid zooms can cause stale rendering which would otherwise be fixed on observer changes} & {
+%   %     \begin{itemize}
+%   %       \item May fix with event listeners
+%   %       \item Does not include handling subheader tags
+%   %     \end{itemize}
+%   %   } \\
+%   % \end{tblr}
+% }
+
+%\report
+%% Experience Report
+%{
+%  k k
+%}
+
+\end{document}
+
+
+
+
