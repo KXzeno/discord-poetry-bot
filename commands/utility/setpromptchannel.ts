@@ -30,7 +30,7 @@ export const command = {
 		if (!interaction.guildId || !interaction.guild) throw new Error('Guild undetected.');
 		if (!channel) throw new Error('Elected channel undetected.');
 
-		if (terminate && prompt.dailyIntvId !== null) {
+		if ((terminate && prompt.dailyIntvId !== null) || (terminate && targetChannel !== null)) {
 			interaction.reply({ content: 'Prompter terminated.', ephemeral: true});
 
 			let nullifyCh = await prisma.config.update({
@@ -116,6 +116,7 @@ export const command = {
 						interaction.reply({ content: 'Channel set.', ephemeral: true });
 						await targetChannel.sendTyping();
 						await prompt.execute(interaction);
+						isListed = true;
 					} catch (err) {
 						console.error(err);
 						interaction.reply('Unable to utilize channel, ensure correct permissions.')
