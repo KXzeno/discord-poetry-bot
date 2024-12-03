@@ -65,6 +65,8 @@ export const command = {
 		} else {
 			console.error(`ERR: Unable to retrieve channel config, attempting creation...`)
 			try {
+				if (prompt.dailyIntvId !== null) clearTimeout(prompt.dailyIntvId);
+
 				let serverData = {
 					serverId: interaction.guildId,
 					guildName: interaction.guild.toString(),
