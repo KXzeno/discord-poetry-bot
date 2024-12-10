@@ -30,7 +30,7 @@ export const command = {
 		if (!interaction.guildId || !interaction.guild) throw new Error('Guild undetected.');
 		if (!channel) throw new Error('Elected channel undetected.');
 
-		if ((terminate && prompt.dailyIntvId !== null) || (terminate && targetChannel !== null)) {
+		if ((terminate && prompt.dailyIntvId !== null) || (terminate && targetChannel && (targetChannel as Config).promptChannelId.includes("XNULL") === false)) {
 			interaction.reply({ content: 'Prompter terminated.', ephemeral: true});
 
 			let nullifyCh = await prisma.config.update({
